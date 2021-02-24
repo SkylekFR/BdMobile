@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB4E86D825E6420600B33220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86D725E6420600B33220 /* AppDelegate.swift */; };
 		EB4E86DA25E6420600B33220 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86D925E6420600B33220 /* SceneDelegate.swift */; };
-		EB4E86DC25E6420600B33220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86DB25E6420600B33220 /* ViewController.swift */; };
+		EB4E86DC25E6420600B33220 /* TeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86DB25E6420600B33220 /* TeamTableViewController.swift */; };
 		EB4E86DF25E6420600B33220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB4E86DD25E6420600B33220 /* Main.storyboard */; };
 		EB4E86E225E6420600B33220 /* BdMobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86E025E6420600B33220 /* BdMobile.xcdatamodeld */; };
 		EB4E86E425E6420700B33220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4E86E325E6420700B33220 /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		EB4E86D425E6420600B33220 /* BdMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BdMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E86D725E6420600B33220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4E86D925E6420600B33220 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB4E86DB25E6420600B33220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB4E86DB25E6420600B33220 /* TeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewController.swift; sourceTree = "<group>"; };
 		EB4E86DE25E6420600B33220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB4E86E125E6420600B33220 /* BdMobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BdMobile.xcdatamodel; sourceTree = "<group>"; };
 		EB4E86E325E6420700B33220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				EB4E86D725E6420600B33220 /* AppDelegate.swift */,
 				EB4E86D925E6420600B33220 /* SceneDelegate.swift */,
-				EB4E86DB25E6420600B33220 /* ViewController.swift */,
+				EB4E86DB25E6420600B33220 /* TeamTableViewController.swift */,
 				EB4E86DD25E6420600B33220 /* Main.storyboard */,
 				EB4E86E325E6420700B33220 /* Assets.xcassets */,
 				EB4E86E525E6420700B33220 /* LaunchScreen.storyboard */,
@@ -261,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB4E86DC25E6420600B33220 /* ViewController.swift in Sources */,
+				EB4E86DC25E6420600B33220 /* TeamTableViewController.swift in Sources */,
 				EB4E86D825E6420600B33220 /* AppDelegate.swift in Sources */,
 				EB4E86DA25E6420600B33220 /* SceneDelegate.swift in Sources */,
 				EB4E86E225E6420600B33220 /* BdMobile.xcdatamodeld in Sources */,
