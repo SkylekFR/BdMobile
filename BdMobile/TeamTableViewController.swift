@@ -1,58 +1,127 @@
 //
-//  ViewController.swift
+//  TeamTableViewController.swift
 //  BdMobile
 //
-//  Created by Emilien Champion on 24/02/2021.
+//  Created by Emilien Champion on 03/03/2021.
 //
 
 import UIKit
 import CoreData
+
 class TeamTableViewController: UITableViewController {
-    
-    private var teams: [Team] = []
+    enum Section: CaseIterable {
+        case informations
+        case players
+    }
+    private var team: Team = Team()
     
     private var managedContext: NSManagedObjectContext {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        let team = Team(context: managedContext)
-        team.name = "Vitality"
-        team.hltv_points = 563
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
-        teams = fetchTeamsFromCoreData()
-        
-        // Do any additional setup after loading the view.
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    private func fetchTeamsFromCoreData() -> [Team] {
-        let fetchRq: NSFetchRequest<Team> = Team.fetchRequest()
-        do {
-            return try managedContext.fetch(fetchRq)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
+    public func loadTeam(team: Team) {
+        self.team = team
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "team_cell", for: indexPath)
-        let team = teams[indexPath.row]
-        cell.textLabel?.text = team.name
-        cell.detailTextLabel?.text = String(team.hltv_points)
-        return cell
+
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teams.count
-    }
-        
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of rows
+        switch Section.allCases[section] {
+        case .informations:
+            return 3
+        case .players:
+            return team.players!.count
+        }
     }
 
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        switch Section.allCases[indexPath.section] {
+        case .informations:
+            cell = tableView.dequeueReusableCell(withIdentifier: "team_cell_information", for: indexPath)
+            cell.textLabel?.text = team.name
+            
+        case .players:
+            cell = tableView.dequeueReusableCell(withIdentifier: "team_cell_player", for: indexPath)
+            cell.textLabel?.text = (team.players?.allObjects as! [Player])[indexPath.row].firstname
+        }
+        
+
+        // Configure the cell...
+       
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch Section.allCases[section] {
+        case .informations:
+            return "Team informations"
+            
+        case .players:
+            return "Player list"
+        }
+    }
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-
