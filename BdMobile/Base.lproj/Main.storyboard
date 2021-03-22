@@ -53,9 +53,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dD3-dt-elf">
                             <connections>
                                 <action selector="onClickAddTeam:" destination="BXI-wD-naf" id="rtT-Tl-iqL"/>
+                                <segue destination="46N-CV-TeP" kind="presentation" identifier="add_team" id="8yT-W6-1YH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="dD3-dt-elf" id="IZh-FA-G7T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNP-SH-eW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +143,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9V6-aB-Ldh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064" y="80"/>
+        </scene>
+        <!--Add Team Table View Controller-->
+        <scene sceneID="pYO-Er-6CN">
+            <objects>
+                <tableViewController id="dNL-dR-xEi" customClass="AddTeamTableViewController" customModule="BdMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Foj-Jn-rRP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="add_team_cell" id="MHL-os-8js">
+                                <rect key="frame" x="0.0" y="28" width="414" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MHL-os-8js" id="On8-Ib-J4P">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zsa" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-l6-LGc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="xdE-l6-LGc" secondAttribute="trailing" id="Hry-JL-9Xk"/>
+                                        <constraint firstItem="xdE-l6-LGc" firstAttribute="top" secondItem="On8-Ib-J4P" secondAttribute="top" id="Ils-3f-bQ5"/>
+                                        <constraint firstAttribute="bottom" secondItem="xdE-l6-LGc" secondAttribute="bottom" id="cBo-BZ-YtJ"/>
+                                        <constraint firstItem="xdE-l6-LGc" firstAttribute="leading" secondItem="On8-Ib-J4P" secondAttribute="leading" id="htI-xj-7az"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dNL-dR-xEi" id="et0-dG-l1v"/>
+                            <outlet property="delegate" destination="dNL-dR-xEi" id="aiQ-zJ-s0D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1O3-pY-8xn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="UZb-kW-VT6">
+                            <connections>
+                                <action selector="doneButton:" destination="dNL-dR-xEi" id="auL-ei-Gjs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2U-1Z-uuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837.68115942028987" y="781.47321428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zy8-PQ-MLu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="46N-CV-TeP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="esB-Vr-27Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dNL-dR-xEi" kind="relationship" relationship="rootViewController" id="ouq-la-ab5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Idd-du-WSn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72.463768115942031" y="781.47321428571422"/>
         </scene>
     </scenes>
     <resources>

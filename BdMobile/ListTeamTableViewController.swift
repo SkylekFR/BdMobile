@@ -15,16 +15,12 @@ class ListTeamTableViewController: UITableViewController {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
 
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       /* let team = Team(context: managedContext)
-        let player = Player(context: managedContext)
-        player.firstname = "Egor"
-        team.name = "Vitalityprivate var teams: [Team] = []private var teams: [Team] = []"
-        team.hltv_points = 563
-        team.addToPlayers(player)
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()*/
+       
         
         teams = fetchTeamsFromCoreData()
         
@@ -42,8 +38,28 @@ class ListTeamTableViewController: UITableViewController {
     
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! TeamTableViewController
-        destination.loadTeam(team: teams[tableView.indexPath(for: sender as! UITableViewCell)!.row])
+        switch segue.identifier {
+        
+        case "add_team":
+            let navigationC = segue.destination as! UINavigationController
+            let destination = navigationC.topViewController as! AddTeamTableViewController
+            destination.delegate = self
+            
+        case "team_detail":
+            let destination = segue.destination as! TeamTableViewController
+            destination.loadTeam(team: teams[tableView.indexPath(for: sender as! UITableViewCell)!.row])
+            
+        default:
+            print("unknown identifier")
+        }
+       
+           
+        
+        
+        
+            
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +67,18 @@ class ListTeamTableViewController: UITableViewController {
         let team = teams[indexPath.row]
         cell.textLabel?.text = team.name
         cell.detailTextLabel?.text = String(team.hltv_points)
+            
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            managedContext.delete(teams[indexPath.row])
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            teams.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+            
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,3 +92,16 @@ class ListTeamTableViewController: UITableViewController {
 
 }
 
+extension ListTeamTableViewController: AddTeamTableViewControllerDelegate {
+    func addTeamTableViewController(_ controller: AddTeamTableViewController, didAddTeam team: Team) {
+        /// version cloudkit avec fetch v1
+        teams = fetchTeamsFromCoreData()
+        tableView.reloadData()
+        
+        
+        
+        /// version autre v2
+    }
+    
+    
+}

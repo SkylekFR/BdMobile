@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB259AB22608DD4700C96497 /* AddTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB259AB12608DD4700C96497 /* AddTeamTableViewController.swift */; };
 		EB4E86D825E6420600B33220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86D725E6420600B33220 /* AppDelegate.swift */; };
 		EB4E86DA25E6420600B33220 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86D925E6420600B33220 /* SceneDelegate.swift */; };
 		EB4E86DC25E6420600B33220 /* ListTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86DB25E6420600B33220 /* ListTeamTableViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB259AB12608DD4700C96497 /* AddTeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamTableViewController.swift; sourceTree = "<group>"; };
 		EB4E86D425E6420600B33220 /* BdMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BdMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E86D725E6420600B33220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB4E86D925E6420600B33220 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				EB4E86E525E6420700B33220 /* LaunchScreen.storyboard */,
 				EB4E86E825E6420700B33220 /* Info.plist */,
 				EB4E86E025E6420600B33220 /* BdMobile.xcdatamodeld */,
+				EB259AB12608DD4700C96497 /* AddTeamTableViewController.swift */,
 			);
 			path = BdMobile;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				EB863F9825EF808E00A436BE /* TeamTableViewController.swift in Sources */,
 				EB4E86D825E6420600B33220 /* AppDelegate.swift in Sources */,
 				EB4E86DA25E6420600B33220 /* SceneDelegate.swift in Sources */,
+				EB259AB22608DD4700C96497 /* AddTeamTableViewController.swift in Sources */,
 				EB4E86E225E6420600B33220 /* BdMobile.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@ class TeamTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        title = team.name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,7 +56,18 @@ class TeamTableViewController: UITableViewController {
         switch Section.allCases[indexPath.section] {
         case .informations:
             cell = tableView.dequeueReusableCell(withIdentifier: "team_cell_information", for: indexPath)
-            cell.textLabel?.text = team.name
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Owner: \(team.owner ?? "unknown")"
+            case 1:
+                cell.textLabel?.text = "Hltv Points: \(team.hltv_points)"
+            case 2:
+                cell.textLabel?.text = "Ranking: No rank"
+            default:
+                cell.textLabel?.text = ""
+            }
+           
+            
             
         case .players:
             cell = tableView.dequeueReusableCell(withIdentifier: "team_cell_player", for: indexPath)
