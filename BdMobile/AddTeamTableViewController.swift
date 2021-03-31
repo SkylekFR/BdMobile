@@ -10,6 +10,11 @@ import CoreData
 
 class AddTeamTableViewController: UITableViewController {
     
+
+    @IBOutlet weak var teamNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var teamOwnerTextField: UITextField!
     private var managedContext: NSManagedObjectContext {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
@@ -19,20 +24,16 @@ class AddTeamTableViewController: UITableViewController {
     private var team: Team = Team(context: AppDelegate.shared.persistentContainer.viewContext)
     
     @IBAction func doneButton(_ sender: Any) {
+        team.name = teamNameTextField.text
+        team.owner = teamOwnerTextField.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         delegate?.addTeamTableViewController(self, didAddTeam: team)
         dismiss(animated: true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "add_team_cell", for: indexPath)
-        return cell
-        
-    }
+  
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
+  
 
 }
 
