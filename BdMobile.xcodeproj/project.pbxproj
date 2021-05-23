@@ -18,6 +18,7 @@
 		EB4E86F225E6420700B33220 /* BdMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86F125E6420700B33220 /* BdMobileTests.swift */; };
 		EB4E86FD25E6420700B33220 /* BdMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E86FC25E6420700B33220 /* BdMobileUITests.swift */; };
 		EB863F9825EF808E00A436BE /* TeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB863F9725EF808E00A436BE /* TeamTableViewController.swift */; };
+		EBED3569265AED740006B91E /* AddPlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBED3568265AED740006B91E /* AddPlayerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		EB4E86FC25E6420700B33220 /* BdMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BdMobileUITests.swift; sourceTree = "<group>"; };
 		EB4E86FE25E6420700B33220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB863F9725EF808E00A436BE /* TeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewController.swift; sourceTree = "<group>"; };
+		EBED3568265AED740006B91E /* AddPlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				EB4E86E825E6420700B33220 /* Info.plist */,
 				EB4E86E025E6420600B33220 /* BdMobile.xcdatamodeld */,
 				EB259AB12608DD4700C96497 /* AddTeamTableViewController.swift */,
+				EBED3568265AED740006B91E /* AddPlayerTableViewController.swift */,
 			);
 			path = BdMobile;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBED3569265AED740006B91E /* AddPlayerTableViewController.swift in Sources */,
 				EB4E86DC25E6420600B33220 /* ListTeamTableViewController.swift in Sources */,
 				EB863F9825EF808E00A436BE /* TeamTableViewController.swift in Sources */,
 				EB4E86D825E6420600B33220 /* AppDelegate.swift in Sources */,

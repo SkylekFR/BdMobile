@@ -13,7 +13,7 @@ class TeamTableViewController: UITableViewController {
         case informations
         case players
     }
-    private var team: Team = Team()
+    public var team: Team = Team()
     
     private var managedContext: NSManagedObjectContext {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -50,6 +50,11 @@ class TeamTableViewController: UITableViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navDestination = segue.destination as! UINavigationController
+        let destination = navDestination.topViewController as! AddPlayerTableViewController
+        destination.delegate = self
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
@@ -71,7 +76,8 @@ class TeamTableViewController: UITableViewController {
             
         case .players:
             cell = tableView.dequeueReusableCell(withIdentifier: "team_cell_player", for: indexPath)
-            cell.textLabel?.text = (team.players?.allObjects as! [Player])[indexPath.row].firstname
+            let player = (team.players?.allObjects as! [Player])[indexPath.row]
+            cell.textLabel?.text = "\(player.firstname ?? "") \"\(player.username ?? "")\" \(player.lastname ?? "") | \(player.age) ans | \(player.rating) rating"
         }
         
 
@@ -90,49 +96,15 @@ class TeamTableViewController: UITableViewController {
         }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+
+}
+
+extension TeamTableViewController: AddPlayerTableViewControllerDelegate {
+    func addPlayerTableViewController(_ controller: AddPlayerTableViewController, didAddPlayerInTeam team: Team) {
+        loadTeam(team: team)
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
